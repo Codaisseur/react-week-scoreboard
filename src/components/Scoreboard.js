@@ -7,6 +7,10 @@ function compare_score(player_a, player_b) {
   return player_b.score - player_a.score;
 }
 
+function compare_name(player_a, player_b) {
+  return player_a.name.localeCompare(player_b.name);
+}
+
 export default function Scoreboard() {
   const [players, set_players] = useState([
     { id: 1, name: "Violeta", score: 11 },
@@ -18,8 +22,8 @@ export default function Scoreboard() {
   const players_sorted =
     // first "copy" the array
     [...players]
-      // then sort it with the `compare_score` callback function
-      .sort(compare_score);
+      // then sort it with the `compare_name` callback function
+      .sort(compare_name);
 
   return (
     <div className="Scoreboard">
