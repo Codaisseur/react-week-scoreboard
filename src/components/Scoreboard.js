@@ -30,6 +30,11 @@ export default function Scoreboard() {
     set_sort_by(event.target.value);
   };
 
+  // Defining the callback function:
+  const incrementScore = (/* possibly some params here */) => {
+    // something smart here
+  };
+
   return (
     <div className="Scoreboard">
       <p>
@@ -42,7 +47,13 @@ export default function Scoreboard() {
       <p>Player's scores:</p>
       <ul>
         {players_sorted.map(player => (
-          <Player key={player.id} name={player.name} score={player.score} />
+          <Player
+            key={player.id}
+            id={player.id}
+            name={player.name}
+            score={player.score}
+            incrementScore={incrementScore}
+          />
         ))}
       </ul>
       <AddPlayerForm />
