@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // src/components/AddPlayerForm.js
-export default function AddPlayerForm() {
+export default function AddPlayerForm(props) {
   const [name, set_name] = useState("");
   return (
     <div className="AddPlayerForm">
@@ -15,7 +15,13 @@ export default function AddPlayerForm() {
             set_name(event.target.value);
           }}
         />{" "}
-        <button>Add</button>
+        <button
+          onClick={() => {
+            props.addPlayer(name);
+          }}
+        >
+          Add
+        </button>
       </p>
     </div>
   );

@@ -97,7 +97,11 @@ export default function Scoreboard() {
           />
         ))}
       </ul>
-      <AddPlayerForm />
+      <AddPlayerForm
+        addPlayer={name => {
+          console.log("Let's add a new player with the name:", name);
+        }}
+      />
     </div>
   );
 }
