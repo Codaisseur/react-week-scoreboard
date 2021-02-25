@@ -31,8 +31,24 @@ export default function Scoreboard() {
   };
 
   // Defining the callback function:
-  const incrementScore = player_id => {
-    console.log("Increment player", player_id);
+  const incrementScore = id => {
+    const new_players_array = players.map(player => {
+      // decide whether this player's score needs to be incremented
+      if (player.id === id) {
+        // and if so, create a new player object,
+        return {
+          // but first copying over the player object's data
+          ...player,
+          // and then overriding the score property to be incremented
+          score: player.score + 1,
+        };
+      } else {
+        // else, just keep them
+        return player;
+      }
+    });
+
+    set_players(new_players_array);
   };
 
   return (
