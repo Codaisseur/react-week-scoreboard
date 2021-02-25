@@ -1,4 +1,5 @@
 // src/components/Scoreboard.js
+import AddPlayerForm from "./AddPlayerForm";
 import Player from "./Player";
 
 export default function Scoreboard() {
@@ -11,6 +12,7 @@ export default function Scoreboard() {
         <Player name="Jeroen v2" />
         <Player name="Lisa" />
       </ul>
+      <AddPlayerForm />
     </div>
   );
 }
