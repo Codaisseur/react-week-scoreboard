@@ -6,7 +6,15 @@ export default function AddPlayerForm() {
   return (
     <div className="AddPlayerForm">
       <p>
-        New player: <input type="text" placeholder="Name" value={name} />{" "}
+        New player:{" "}
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={event => {
+            set_name(event.target.value);
+          }}
+        />{" "}
         <button>Add</button>
       </p>
     </div>
