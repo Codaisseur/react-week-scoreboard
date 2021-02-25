@@ -51,6 +51,17 @@ export default function Scoreboard() {
     set_players(new_players_array);
   };
 
+  const resetScores = () => {
+    const new_players_array = players.map(player => ({
+      // but first copying over the player object's data
+      ...player,
+      // and then overriding the score property to be incremented
+      score: 0,
+    }));
+
+    set_players(new_players_array);
+  };
+
   return (
     <div className="Scoreboard">
       <p>
@@ -60,6 +71,7 @@ export default function Scoreboard() {
           <option value="name">Sort by name</option>
         </select>
       </p>
+      <button onClick={resetScores}>Reset</button>
       <p>Player's scores:</p>
       <ul>
         {players_sorted.map(player => (
